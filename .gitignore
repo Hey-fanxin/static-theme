@@ -1,0 +1,5 @@
+.idea
+vendor
+.vscode
+node_modules
+bootstrap
