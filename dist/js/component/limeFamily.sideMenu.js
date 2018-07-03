@@ -22,19 +22,8 @@
             $options = this.settings,
             $toggle = this.settings.toggle;
 
-        $this
-            .find('li.active')
-            .has('ul')
-            .children('ul')
-            .addClass('collapse in');
-        $this
-            .find('li')
-            .not('.active')
-            .has('ul')
-            .children('ul')
-            .addClass('collapse');
         $this.find('li')
-        //.has('ul')
+            .has('ul')
             .children('a')
             .on('click', function (e) {
                 //e.preventDefault();
@@ -58,7 +47,6 @@
                     $options['fn']($(this))
                 }
             });
-
     };
 
     $.fn[pluginName] = function (options) {

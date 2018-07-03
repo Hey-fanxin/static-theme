@@ -34,13 +34,17 @@
   }
 }
 
+.reset-filter() {
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
 // Mixin for generating new styles
 .btn-styles(@btn-color: #555) {
   #gradient > .vertical(@start-color: @btn-color; @end-color: darken(@btn-color, 12%));
   .reset-filter(); // Disable gradients for IE9 because filter bleeds through rounded corners; see https://github.com/twbs/bootstrap/issues/10620
   background-repeat: repeat-x;
   border-color: darken(@btn-color, 14%);
-  
+
   &:hover,
   &:focus {
     background: darken(@btn-color, 12%);
@@ -78,7 +82,7 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 1px 0 #fff;border-color:#ccc; &:hover,&:focus{color:@btn-default-color; border-color:@btn-default-color;background:#fff;} }
+.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 1px 0 #fff;border-color:#ccc; &:hover,&:focus{color:@btn-default-color; border-color:@btn-default-color;background:#fff;}}
 .btn-primary { .btn-styles(@btn-primary-bg); }
 .btn-success { .btn-styles(@btn-success-bg); }
 .btn-info    { .btn-styles(@btn-info-bg); }
