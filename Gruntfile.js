@@ -1,8 +1,7 @@
 /*!
  * Limefamily's Gruntfile
- * http://getbootstrap.com
- * Copyright 2013-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Copyright 2017-2018 Twitter, Inc.
+ * Licensed under MIT (https://github.com/namebjp)
  */
 
 module.exports = function (grunt) {
@@ -45,8 +44,13 @@ module.exports = function (grunt) {
       },
       bootstrap: {
         src: [
-          'build/js/layoutBox.js',
-          'build/js/resizeWin.js',
+          // 'build/js/layoutBox.js',
+          // 'build/js/resizeWin.js',
+          // 'build/js/component/limeFamily.sideMenu.js',
+          // 'build/js/component/limeFamily.buttonSelect.js',
+          // 'build/js/component/limeFamily.gridView.js'
+          'build/js/pushmenu.js',
+          'build/js/ControlSidebar.js',
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
       }
@@ -90,11 +94,11 @@ module.exports = function (grunt) {
         // },
         // src: ['build/less/mixins/lime-navmenu.less'],
         // dest:['dist/css/navmenu.css']
-        expand:true,
-        cwd:'build/less/component/',
-        src:'*.less',
-        dest:'dist/css/component/',
-        ext:'.css'
+        // expand:true,
+        // cwd:'build/less/component/',
+        // src:'*.less',
+        // dest:'dist/css/component/',
+        // ext:'.css'
       }
       // compileTheme: {
       //   options: {
@@ -196,7 +200,8 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs']);
 
   // CSS distribution task.
-  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileWidget']);
+  // grunt.registerTask('less-compile', ['less:compileCore', 'less:compileWidget']);
+  grunt.registerTask('less-compile', ['less:compileCore']);
   grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'csscomb:dist', 'cssmin:minifyCore']);
   grunt.registerTask('copy-fonts', ['copy:fonts', 'copy:images',]);
   // Full distribution task.

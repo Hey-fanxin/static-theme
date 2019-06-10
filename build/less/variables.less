@@ -15,18 +15,71 @@
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
 //** Load fonts from this directory.
-@icon-font-path:          "../fonts/";
-@font-size-base:          14px;
-//== Navbar
-//
-//##
+@icon-font-path:            "../fonts/";
+@font-size-base:            14px;
+@module-interval:           15px;
+@base-bg-color:             #f1f1f1;
+@exposed-bg-color:          #fff;
 
 // Basics of a navbar
-@navbar-height:                    62px;
 @nav-tabs-border-color:                     #f1f1f1;      //#ddd;
 @nav-tabs-active-link-hover-border-color:   #7FBB38;    //#ddd;
 
 @nav-tabs-justified-link-border-color:            #7FBB38;     //#ddd;
+
+// == Header
+@main-header-height:            50px;
+@main-header-bg-color:          #303030;
+// @main-header-width-max:             170px;    
+// @main-header-width-min:             70px;  
+@main-header-child-height:      calc(@main-header-height - 10px);
+@main-header-child-margin-top:  calc(calc(@main-header-height - calc(@main-header-height - 10px)) / 2);
+// header end  
+
+// == main-log
+@main-log-width-max:            170px;
+@main-log-width-min:            70px; 
+@main-log-height:               @main-header-height;
+// main-log end
+
+// == navbar
+@navbar-height:                 @main-header-height;
+@navbar-margin-left-max:        @main-log-width-max;
+@navbar-margin-left-min:        @main-log-width-min;
+// navber end
+
+// == sideber
+@main-sideber-width-max:        @main-log-width-max;
+@main-sideber-width-min:        @main-log-width-min;
+@main-sideber-height:           calc(100vh - @main-header-height);
+@main-sideber-bg-color:         @main-header-bg-color;
+// sideber end
+
+// == main-footer
+@main-footer-height:            40px;
+@main-footer-margin-left-max:   @main-sideber-width-max;     
+@main-footer-margin-left-min:   @main-sideber-width-min;   
+@main-footer-bg-color:          @base-bg-color;
+@main-footer-content-bg-color:  @exposed-bg-color;
+@main-footer-module-interval:   @module-interval;
+// main-footer  end
+
+// == content-wrapper
+@content-wrapper-height:            calc(100vh - @main-footer-height - @main-header-height);
+@fill-content-wrapper-height:       calc(100vh - @main-header-height);
+@content-wrapper-margin-left-max:   @main-sideber-width-max;
+@content-wrapper-margin-left-min:   @main-sideber-width-min;
+@content-wrapper-bg-color:          @base-bg-color;
+@content-wrapper-module-interval:    @module-interval;
+
+@content-router-height:             30px;
+@content-router-item-color:         #777;
+@content-router-item-active-color:  #7FBB38;
+
+@content-height:                    calc(100% - @content-wrapper-module-interval - @content-router-height - @main-footer-module-interval);
+@fill-content-height:               calc(100% - @content-wrapper-module-interval - @content-router-height);
+@content-bg-color:                  @exposed-bg-color;
+// content-wrapper  end
 
 // ##
 //  custom default style

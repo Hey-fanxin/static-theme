@@ -4,29 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keyword" content="LimeFamily Static theme 一个基于 bootstrap 的轻量级后台模板 中文版 汉化版 bootstrap3.3.7 后台页面框架">
+    <meta name="description" content="LimeFamily Static theme 一个基于 bootstrap 的轻量级后台模板 中文版 汉化版 bootstrap3.3.7 后台页面框架">
     <title>LimeFamily</title>
-    <link rel="stylesheet" href="./dist/css/limefamily.css">
-    <style>
-        html,body{
-            height: 100%;
-            background: #f1f1f1;
-        }
-        .list-box{
-            width:100%;
-            padding:14px;
-            box-sizing: border-box;
-        }
-        .layout-btn {
-            position: absolute;
-            right: 30px;
-            top: -5px;
-    
-        }
-    </style>
+    <link rel="stylesheet" href="./bootstrap-3.3.7/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="./dist/css/limefamily.css" />
 </head>
-<body class="layout-boxed">
+<body class="sidebar-mini">
     <div class="wrapper">
-        <nav class="navbar">
+        <header class="main-header">
+            <a href="javascript:(0)" class="main-log">
+                <span class="log-min">
+                    <img src="./build/images/logo1.png" alt="limefamily-log-min">
+                </span>
+                <span class="log-lg">
+                    <img src="./build/images/logo.png" alt="limefamily-log">
+                </span>
+            </a>
+            <nav class="navbar">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <!-- <span class="glyphicon glyphicon-th-list"></span> -->
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    <span class="sr-only">切换导航 sidebar</span>
+                </a>
+                <h2 class="limefamily-name">
+                    清濛客户管理系统
+                </h2>
+                <div class="navbar-customer-menu">
+                    <div class="avatar">
+                        <i class="avatar-icon fa fa-user-circle" aria-hidden="true"></i>
+                        <span>你好</span>
+                        <span class="customer-name">admin</span>
+                    </div>
+                    <ul>
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">5</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>header list items 1</li>
+                                <li>header list items 2</li>
+                                <li>header list items 3</li>
+                                <li>header list items 4</li>
+                                <li role="separator" class="divider"></li>
+                                <li>header list items 5</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="exit">
+                        <span>退出</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <ul class="sidebar-menu">
+                
+            </ul>
+        </aside>
+        <div class="content-wrapper">
+            <ul class="content-router">
+                <li class="router-item">首页</li>
+                <li class="router-item">首页</li>
+                <li class="router-item active">首页</li>
+            </ul>
+            <div class="content"></div>
+        </div>
+        <footer class="main-footer">
+            <div class="footer-content">Copyright © 2014-2016 Almsaeed Studio. All rights reserved.</div>
+        </footer>
+        <!-- <nav class="navbar">
             <div class="navbar-header">
                 <a><img src="./dist/images/logo.png" alt="logo"></a>
                 <button type="button" class="navbar-toggle" data-toggle="push-menu">
@@ -71,7 +119,7 @@
                             </i>四字列表
                             <span class="fa custom-arrow-icon"></span>
                         </a>
-                        <ul class="nav">
+                        <ul class="nav collapse">
                             <li>
                                 <a data-route="四字列表/home1">home---a</a>
                             </li>
@@ -89,7 +137,7 @@
                             </i>五个字列表
                             <span class="fa custom-arrow-icon"></span>
                         </a>
-                        <ul class="nav">
+                        <ul class="nav collapse">
                             <li>
                                 <a data-route="四字列表/home11">home---a</a>
                             </li>
@@ -108,7 +156,7 @@
                             </i>home3333
                             <span class="fa custom-arrow-icon"></span>
                         </a>
-                        <ul class="nav">
+                        <ul class="nav collapse">
                             <li>
                                 <a data-route="四字列表/home7">home---a</a>
                             </li>
@@ -127,7 +175,7 @@
                             </i>home1444
                             <span class="fa custom-arrow-icon"></span>
                         </a>
-                        <ul class="nav">
+                        <ul class="nav collapse">
                             <li>
                                 <a data-route="四字列表/home4">home---a</a>
                             </li>
@@ -140,7 +188,7 @@
                         </ul>
                     </li>
                 </ul>
-                </div>
+            </div>
         </nav>
         <div class="wrapper-page-container">
             <div>
@@ -194,8 +242,9 @@
                     <button type="button" class="btn btn-primary btn-lg open-modal" data-dismiss="modal">四字按钮</button>
                 </div>
             </div>
+        -->
             <!-- Modal HTML -->
-            <div id="myModal" class="modal fade">
+            <!-- <div id="myModal" class="modal fade">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -208,10 +257,10 @@
                                 <small>This is a test.</small>
                             </p>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer">-->
                             <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Save changes</button> -->
-                            <div class="btn-toolbar" role="toolbar" aria-label="...">
+                            <!--<div class="btn-toolbar" role="toolbar" aria-label="...">
                                 <div class="btn-group-vertical" role="group" aria-label="...">
                                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消选项</button>
                                 </div>
@@ -223,9 +272,9 @@
                         
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- 单选和复选 -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-6 col-md-3">
                     <div class="form-horizontal">
                         <label class="radio-custom">
@@ -255,11 +304,11 @@
                         </label>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- 标题中隔栏 -->
-            <h5 class="custom-h">票据信息</h5>
+            <!-- <h5 class="custom-h">票据信息</h5> -->
             <!-- 下拉选择框 -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-6 col-md-3">
                     <div class="dropup">
                         <button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
@@ -283,10 +332,10 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- 下拉菜单为 select 状态下的  a 标签 href 属性的值必须设置 javascript(0)-->
-                <div class="col-xs-6 col-md-3">
+                <!-- <div class="col-xs-6 col-md-3">
                     <div class="dropdown">
                         <button id="select" class="dropdown-toggle btn btn-default btn-select" type="text" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true">
@@ -318,17 +367,17 @@
                     <input class="form-control input-lg" placeholder="带 form 的类" type="text" />
                     <input class="form-control input-sm" type="text" value='禁止输入' disabled />
                 </div>
-            </div>
+            </div> -->
             <!-- 搜索框 -->
-            <div class="input-group input-group-default">
+            <!-- <div class="input-group input-group-default">
                 <input type="text" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i> 查询</button>
                 </span>
             </div>
-            <br />
+            <br /> -->
             <!-- 列表 -->
-            <div class="table-responsive">
+            <!-- <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -389,9 +438,9 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <!-- 分页 -->
-            <nav aria-label="...">
+            <!-- <nav aria-label="...">
                 <ul class="pagination">
                     <li class="disabled">
                         <a href="#" aria-label="Previous">
@@ -424,9 +473,9 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
+            </nav> -->
             <!-- 面板  详情样式 -->
-            <div class="panel panel-default">
+            <!-- <div class="panel panel-default">
                 <div class="panel-header">
                     <h5>Panel title</h5>
                 </div>
@@ -435,12 +484,13 @@
                     <div class="col-xs-6 col-md-4">bbb</div>
                     <div class="col-xs-6 col-md-4">ccc</div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!--</div> -->
     </div>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="./dist/js/limefamily.js"></script>
-    <script src="./dist/js/custom.js"></script>
+    <!-- <script src="./dist/js/custom.js"></script> -->
 </body>
 </html>

@@ -1,6 +1,6 @@
 /*!
  * LimeFamily v1.0.7 (http://xxxxxxxx.com)
- * Copyright 2017-2018 limefamily[bjp]
+ * Copyright 2017-2019 limefamily[bjp]
  * Licensed under the MIT license
  */
 
@@ -16,150 +16,307 @@ if (typeof jQuery === 'undefined') {
   }
 }(jQuery);
 
-+ function (a) {
-    "use strict";
-    function b(b) {
-        return this.each(function () {
-            var e = a(this),
-                f = e.data(c);
-            if (!f) {
-                var g = a.extend({}, d, e.data(), "object" == typeof b && b);
-                e.data(c, f = new h(g))
-            }
-            "toggle" == b && f.toggle()
-        })
-    }
-    var c = "lte.pushmenu",
-        d = {
-            collapseScreenSize: 767,
-            expandOnHover: !1,
-            expandTransitionDelay: 200
-        },
-        e = {
-            collapsed: ".sidebar-collapse",
-            open: ".sidebar-open",
-            mainSidebar: ".main-sidebar",
-            contentWrapper: ".content-wrapper",
-            searchInput: ".sidebar-form .form-control",
-            button: '[data-toggle="push-menu"]',
-            mini: ".sidebar-mini",
-            expanded: ".sidebar-expanded-on-hover",
-            layoutFixed: ".fixed"
-        },
-        f = {
-            collapsed: "sidebar-collapse",
-            open: "sidebar-open",
-            mini: "sidebar-mini",
-            expanded: "sidebar-expanded-on-hover",
-            expandFeature: "sidebar-mini-expand-feature",
-            layoutFixed: "fixed"
-        },
-        g = {
-            expanded: "expanded.pushMenu",
-            collapsed: "collapsed.pushMenu"
-        },
-        h = function (a) {
-            this.options = a,
-            this.init()
-        };
-    h.prototype.init = function () {
-        (this.options.expandOnHover || a("body").is(e.mini + e.layoutFixed)) && (this.expandOnHover(), a("body").addClass(f.expandFeature)),
-        a(e.contentWrapper).click(function () {
-            a(window).width() <= this.options.collapseScreenSize && a("body").hasClass(f.open) && this.close()
-        }.bind(this)),
-        a(e.searchInput).click(function (a) {
-            a.stopPropagation()
-        })
-    },
-    h.prototype.toggle = function () {
-        var b = a(window).width(),
-            c = !a("body").hasClass(f.collapsed);
-        b <= this.options.collapseScreenSize && (c = a("body").hasClass(f.open)),
-        c
-            ? this.close()
-            : this.open()
-    },
-    h.prototype.open = function () {
-        a(window).width() > this.options.collapseScreenSize
-            ? a("body")
-                .removeClass(f.collapsed)
-                .trigger(a.Event(g.expanded))
-            : a("body")
-                .addClass(f.open)
-                .trigger(a.Event(g.expanded))
-    },
-    h.prototype.close = function () {
-        a(window).width() > this.options.collapseScreenSize
-            ? a("body")
-                .addClass(f.collapsed)
-                .trigger(a.Event(g.collapsed))
-            : a("body")
-                .removeClass(f.open + " " + f.collapsed)
-                .trigger(a.Event(g.collapsed))
-    },
-    h.prototype.expandOnHover = function () {
-        a(e.mainSidebar)
-            .hover(function () {
-                a("body").is(e.mini + e.collapsed) && a(window).width() > this.options.collapseScreenSize && this.expand()
-            }.bind(this), function () {
-                a("body").is(e.expanded) && this.collapse()
-            }.bind(this))
-    },
-    h.prototype.expand = function () {
-        setTimeout(function () {
-            a("body")
-                .removeClass(f.collapsed)
-                .addClass(f.expanded)
-        }, this.options.expandTransitionDelay)
-    },
-    h.prototype.collapse = function () {
-        setTimeout(function () {
-            a("body")
-                .removeClass(f.expanded)
-                .addClass(f.collapsed)
-        }, this.options.expandTransitionDelay)
-    };
-    var i = a.fn.pushMenu;
-    a.fn.pushMenu = b,
-    a.fn.pushMenu.Constructor = h,
-    a.fn.pushMenu.noConflict = function () {
-        return a.fn.pushMenu = i,
-        this
-    },
-    a(document).on("click", e.button, function (c) {
-        c.preventDefault(),
-        b.call(a(this), "toggle")
-    }),
-    a(window).on("load", function () {
-        b.call(a(e.button))
-    })
-}(jQuery);
-(function ($) {
-    "use strict";
-    var mainApp = {
-        resizeWindow: function () {
+/**
+ * Created by bianjunping on 2018/1/12.
+ */
 
-            if ($(window).width() < 1336) {
-                $('div.sidebar-collapse').addClass('collapse');
-            } else {
-                $('div.sidebar-collapse').removeClass('collapse');
-            }
-            $('.navmenu').css({
-                'height': parseInt($(window).height()) - 62
-            });
-            $('.wrapper-page-container').css({
-                'height': parseInt($(window).height()) - 107
-            });
-        },
-        loadMenu: function () {
-            $(window)
-                .bind("load resize", function () {
-                    mainApp.resizeWindow();
-                });
-        }
++function ($) {
+    'use strict';
+  
+    var DataKey = 'lte.pushmenu';
+  
+    var Default = {
+      collapseScreenSize   : 767,
+      expandOnHover        : false,
+      expandTransitionDelay: 200
     };
-    $(document).ready(function () {
-        mainApp.loadMenu();
-        mainApp.resizeWindow();
+  
+    var Selector = {
+      collapsed     : '.sidebar-collapse',
+      open          : '.sidebar-open',
+      mainSidebar   : '.main-sidebar',
+      contentWrapper: '.content-wrapper',
+      searchInput   : '.sidebar-form .form-control',
+      button        : '[data-toggle="push-menu"]',
+      mini          : '.sidebar-mini',
+      expanded      : '.sidebar-expanded-on-hover',
+      layoutFixed   : '.fixed'
+    };
+  
+    var ClassName = {
+      collapsed    : 'sidebar-collapse',
+      open         : 'sidebar-open',
+      mini         : 'sidebar-mini',
+      expanded     : 'sidebar-expanded-on-hover',
+      expandFeature: 'sidebar-mini-expand-feature',
+      layoutFixed  : 'fixed'
+    };
+  
+    var Event = {
+      expanded : 'expanded.pushMenu',
+      collapsed: 'collapsed.pushMenu'
+    };
+  
+    // PushMenu Class Definition
+    // =========================
+    var PushMenu = function (options) {
+      this.options = options;
+      this.init();
+    };
+  
+    PushMenu.prototype.init = function () {
+      if (this.options.expandOnHover
+        || ($('body').is(Selector.mini + Selector.layoutFixed))) {
+        this.expandOnHover();
+        $('body').addClass(ClassName.expandFeature);
+      }
+  
+      $(Selector.contentWrapper).click(function () {
+        // Enable hide menu when clicking on the content-wrapper on small screens
+        if ($(window).width() <= this.options.collapseScreenSize && $('body').hasClass(ClassName.open)) {
+          this.close();
+        }
+      }.bind(this));
+  
+      // __Fix for android devices
+      $(Selector.searchInput).click(function (e) {
+        e.stopPropagation();
+      });
+    };
+  
+    PushMenu.prototype.toggle = function () {
+      var windowWidth = $(window).width();
+      var isOpen      = !$('body').hasClass(ClassName.collapsed);
+  
+      if (windowWidth <= this.options.collapseScreenSize) {
+        isOpen = $('body').hasClass(ClassName.open);
+      }
+  
+      if (!isOpen) {
+        this.open();
+      } else {
+        this.close();
+      }
+    };
+  
+    PushMenu.prototype.open = function () {
+      var windowWidth = $(window).width();
+  
+      if (windowWidth > this.options.collapseScreenSize) {
+        $('body').removeClass(ClassName.collapsed)
+          .trigger($.Event(Event.expanded));
+      }
+      else {
+        $('body').addClass(ClassName.open)
+          .trigger($.Event(Event.expanded));
+      }
+    };
+  
+    PushMenu.prototype.close = function () {
+      var windowWidth = $(window).width();
+      if (windowWidth > this.options.collapseScreenSize) {
+        $('body').addClass(ClassName.collapsed)
+          .trigger($.Event(Event.collapsed));
+      } else {
+        $('body').removeClass(ClassName.open + ' ' + ClassName.collapsed)
+          .trigger($.Event(Event.collapsed));
+      }
+    };
+  
+    PushMenu.prototype.expandOnHover = function () {
+      $(Selector.mainSidebar).hover(function () {
+        if ($('body').is(Selector.mini + Selector.collapsed)
+          && $(window).width() > this.options.collapseScreenSize) {
+          this.expand();
+        }
+      }.bind(this), function () {
+        if ($('body').is(Selector.expanded)) {
+          this.collapse();
+        }
+      }.bind(this));
+    };
+  
+    PushMenu.prototype.expand = function () {
+      setTimeout(function () {
+        $('body').removeClass(ClassName.collapsed)
+          .addClass(ClassName.expanded);
+      }, this.options.expandTransitionDelay);
+    };
+  
+    PushMenu.prototype.collapse = function () {
+      setTimeout(function () {
+        $('body').removeClass(ClassName.expanded)
+          .addClass(ClassName.collapsed);
+      }, this.options.expandTransitionDelay);
+    };
+  
+    // PushMenu Plugin Definition
+    // ==========================
+    function Plugin(option) {
+      return this.each(function () {
+        var $this = $(this);
+        var data  = $this.data(DataKey);
+  
+        if (!data) {
+          var options = $.extend({}, Default, $this.data(), typeof option == 'object' && option);
+          $this.data(DataKey, (data = new PushMenu(options)));
+        }
+  
+        if (option === 'toggle') data.toggle();
+      });
+    }
+  
+    var old = $.fn.pushMenu;
+  
+    $.fn.pushMenu             = Plugin;
+    $.fn.pushMenu.Constructor = PushMenu;
+  
+    // No Conflict Mode
+    // ================
+    $.fn.pushMenu.noConflict = function () {
+      $.fn.pushMenu = old;
+      return this;
+    };
+  
+    // Data API
+    // ========
+    $(document).on('click', Selector.button, function (e) {
+      e.preventDefault();
+      Plugin.call($(this), 'toggle');
     });
-}(jQuery));
+    $(window).on('load', function () {
+      Plugin.call($(Selector.button));
+    });
+  }(jQuery);
+
++function ($) {
+    'use strict';
+  
+    var DataKey = 'lte.controlsidebar';
+  
+    var Default = {
+      slide: true
+    };
+  
+    var Selector = {
+      sidebar: '.control-sidebar',
+      data   : '[data-toggle="control-sidebar"]',
+      open   : '.control-sidebar-open',
+      bg     : '.control-sidebar-bg',
+      wrapper: '.wrapper',
+      content: '.content-wrapper',
+      boxed  : '.layout-boxed'
+    };
+  
+    var ClassName = {
+      open : 'control-sidebar-open',
+      fixed: 'fixed'
+    };
+  
+    var Event = {
+      collapsed: 'collapsed.controlsidebar',
+      expanded : 'expanded.controlsidebar'
+    };
+  
+    // ControlSidebar Class Definition
+    // ===============================
+    var ControlSidebar = function (element, options) {
+      this.element         = element;
+      this.options         = options;
+      this.hasBindedResize = false;
+  
+      this.init();
+    };
+  
+    ControlSidebar.prototype.init = function () {
+      // Add click listener if the element hasn't been
+      // initialized using the data API
+      if (!$(this.element).is(Selector.data)) {
+        $(this).on('click', this.toggle);
+      }
+  
+      this.fix();
+      $(window).resize(function () {
+        this.fix();
+      }.bind(this));
+    };
+  
+    ControlSidebar.prototype.toggle = function (event) {
+      if (event) event.preventDefault();
+  
+      this.fix();
+  
+      if (!$(Selector.sidebar).is(Selector.open) && !$('body').is(Selector.open)) {
+        this.expand();
+      } else {
+        this.collapse();
+      }
+    };
+  
+    ControlSidebar.prototype.expand = function () {
+      if (!this.options.slide) {
+        $('body').addClass(ClassName.open);
+      } else {
+        $(Selector.sidebar).addClass(ClassName.open);
+      }
+  
+      $(this.element).trigger($.Event(Event.expanded));
+    };
+  
+    ControlSidebar.prototype.collapse = function () {
+      $('body, ' + Selector.sidebar).removeClass(ClassName.open);
+      $(this.element).trigger($.Event(Event.collapsed));
+    };
+  
+    ControlSidebar.prototype.fix = function () {
+      if ($('body').is(Selector.boxed)) {
+        this._fixForBoxed($(Selector.bg));
+      }
+    };
+  
+    // Private
+  
+    ControlSidebar.prototype._fixForBoxed = function (bg) {
+      bg.css({
+        position: 'absolute',
+        height  : $(Selector.wrapper).height()
+      });
+    };
+  
+    // Plugin Definition
+    // =================
+    function Plugin(option) {
+      return this.each(function () {
+        var $this = $(this);
+        var data  = $this.data(DataKey);
+  
+        if (!data) {
+          var options = $.extend({}, Default, $this.data(), typeof option == 'object' && option);
+          $this.data(DataKey, (data = new ControlSidebar($this, options)));
+        }
+  
+        if (typeof option == 'string') data.toggle();
+      });
+    }
+  
+    var old = $.fn.controlSidebar;
+  
+    $.fn.controlSidebar             = Plugin;
+    $.fn.controlSidebar.Constructor = ControlSidebar;
+  
+    // No Conflict Mode
+    // ================
+    $.fn.controlSidebar.noConflict = function () {
+      $.fn.controlSidebar = old;
+      return this;
+    };
+  
+    // ControlSidebar Data API
+    // =======================
+    $(document).on('click', Selector.data, function (event) {
+      if (event) event.preventDefault();
+      Plugin.call($(this), 'toggle');
+    });
+  
+  }(jQuery);
+  

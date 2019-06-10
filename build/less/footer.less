@@ -1,0 +1,17 @@
+@media (min-width: 768px){
+    .sidebar-mini.sidebar-collapse .main-footer {
+        margin-left: @main-footer-margin-left-min;
+    }
+}
+.main-footer{
+    height: @main-footer-height;
+    transition: transform .3s ease-in-out,margin .3s ease-in-out;
+    margin-left: @main-footer-margin-left-max;
+    background: @main-footer-bg-color;
+    .footer-content{
+        height: 100%;
+        line-height: @main-footer-height; 
+        margin-left: @main-footer-module-interval;
+        background: @main-footer-content-bg-color;
+    }
+}
