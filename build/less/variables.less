@@ -21,15 +21,22 @@
 @base-bg-color:             #f1f1f1;
 @exposed-bg-color:          #fff;
 
+@bg-default:                #d2d6de;
+@bg-red:                    #dd4b39;
+@bg-green:                  #00a65a;
+@bg-blue:                   #0073b7;
+@bg-yellow:                 #f39c12;
+@bg-aqua:                   #00c0ef;
+
 // Basics of a navbar
 @nav-tabs-border-color:                     #f1f1f1;      //#ddd;
-@nav-tabs-active-link-hover-border-color:   #7FBB38;    //#ddd;
+@nav-tabs-active-link-hover-border-color:   @brand-primary;    //#ddd;
 
-@nav-tabs-justified-link-border-color:            #7FBB38;     //#ddd;
+@nav-tabs-justified-link-border-color:            @brand-primary;     //#ddd;
 
 // == Header
 @main-header-height:            50px;
-@main-header-bg-color:          #303030;
+@main-header-bg-color:          #222d32;
 // @main-header-width-max:             170px;    
 // @main-header-width-min:             70px;  
 @main-header-child-height:      calc(@main-header-height - 10px);
@@ -74,19 +81,32 @@
 
 @content-router-height:             30px;
 @content-router-item-color:         #777;
-@content-router-item-active-color:  #7FBB38;
+@content-router-item-active-color:  @brand-primary;
 
 @content-height:                    calc(100% - @content-wrapper-module-interval - @content-router-height - @main-footer-module-interval);
 @fill-content-height:               calc(100% - @content-wrapper-module-interval - @content-router-height);
 @content-bg-color:                  @exposed-bg-color;
 // content-wrapper  end
 
+// btn
+@btn-width:                     110px;
+@btn-font-size:                 16px;
+@btn-sm-width:                  60px;
+@btn-sm-font-size:              14px;
+@btn-default-bg-color:          #e6e6e6;
+@btn-primary-bg-color:          @brand-primary;
+@btn-radius:                    4px;
+// btn end
+
+// from input
+@input-checked-color:           @brand-primary;
+// from input end
+
 // ##
 //  custom default style
 
 @grid-gutter-width:             30px;
 @essential-colour:             @brand-primary;
-@btn-primary-bg:               @brand-primary;
 
 @wrapper-width:                1336px;
 @navmenu-width:                171px;
@@ -127,18 +147,6 @@
 
 @font-size-qmyl-large:         ceil((@font-size-base * 1.14)); // ~16px
 @font-size-qmyl-small:         ceil((@font-size-base * 1)); // ~14px
-
-@btn-default-color:              @btn-primary-bg;
-@btn-default-bg:                 #FFF;
-@btn-default-border:             @btn-primary-bg;
-
-@btn-primary-border:            @btn-primary-bg;
-
-//** Border color for inputs on focus
-@input-border-focus:             @btn-primary-bg;   //#66afe9;
-
-//** border color for button on focus
-@btn-border-focus:               @btn-primary-bg;
 
 //** Placeholder text color
 @input-color-placeholder:        #999;

@@ -5,7 +5,7 @@
 +function ($) {
     'use strict';
   
-    var DataKey = 'lte.pushmenu';
+    var DataKey = 'limefamily.pushmenu';
   
     var Default = {
       collapseScreenSize   : 767,

@@ -50,7 +50,7 @@ module.exports = function (grunt) {
           // 'build/js/component/limeFamily.buttonSelect.js',
           // 'build/js/component/limeFamily.gridView.js'
           'build/js/pushmenu.js',
-          'build/js/ControlSidebar.js',
+          'build/js/Tree.js',
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
       }
@@ -99,19 +99,19 @@ module.exports = function (grunt) {
         // src:'*.less',
         // dest:'dist/css/component/',
         // ext:'.css'
+      },
+      compileTheme: {
+        options: {
+          banner: '<%= banner %>',
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= pkg.name %>-skins.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>-skins.css.map'
+        },
+        src: 'build/less/skins/all-skin-theme.less',
+        dest: 'dist/css/<%= pkg.name %>-skins.css'
       }
-      // compileTheme: {
-      //   options: {
-      //     banner: '<%= banner %>',
-      //     strictMath: true,
-      //     sourceMap: true,
-      //     outputSourceFiles: true,
-      //     sourceMapURL: '<%= pkg.name %>-theme.css.map',
-      //     sourceMapFilename: 'dist/css/<%= pkg.name %>-theme.css.map'
-      //   },
-      //   src: 'bootstrap/less/theme.less',
-      //   dest: 'dist/css/<%= pkg.name %>-theme.css'
-      // }
     },
 
     autoprefixer: {
@@ -123,7 +123,13 @@ module.exports = function (grunt) {
           map: true
         },
         src: 'dist/css/<%= pkg.name %>.css'
-      }
+      },
+      skins: {
+        options: {
+          map: true
+        },
+        src: 'dist/css/<%= pkg.name %>-skins.css'
+      },
     },
 
     csslint: {
@@ -132,6 +138,7 @@ module.exports = function (grunt) {
       },
       dist: [
         'dist/css/limefamily.css',
+        'dist/css/limefamily-skins.css'
       ]
     },
 
@@ -148,6 +155,10 @@ module.exports = function (grunt) {
       minifyCore: {
         src: 'dist/css/<%= pkg.name %>.css',
         dest: 'dist/css/<%= pkg.name %>.min.css'
+      },
+      minifySkins: {
+        src: 'dist/css/<%= pkg.name %>-skins.css',
+        dest: 'dist/css/<%= pkg.name %>-skins.min.css'
       },
     },
 
@@ -201,8 +212,8 @@ module.exports = function (grunt) {
 
   // CSS distribution task.
   // grunt.registerTask('less-compile', ['less:compileCore', 'less:compileWidget']);
-  grunt.registerTask('less-compile', ['less:compileCore']);
-  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'csscomb:dist', 'cssmin:minifyCore']);
+  grunt.registerTask('less-compile', ['less:compileCore','less:compileTheme']);
+  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:skins', 'csscomb:dist', 'cssmin:minifyCore','cssmin:minifySkins']);
   grunt.registerTask('copy-fonts', ['copy:fonts', 'copy:images',]);
   // Full distribution task.
   grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy-fonts', 'dist-js', 'copy:js', 'copy:componentJs']);

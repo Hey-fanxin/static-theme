@@ -1,0 +1,35 @@
+.skin-primay{
+    .sidebar-menu{
+        &>li.header{
+            color: #00a65a;
+            background: #1a2226;
+        }
+        &>li>a{
+            color: #4d97b9;
+            &:hover{
+                text-decoration: none;
+                color: #fff;
+                background: #1e282c;
+            }
+        }
+        &>li.treeview>ul.treeview-menu li{
+            a{
+                color: #8aa4af;
+            }
+            &.active > a,
+            & > a:hover{
+                color: #fff;
+                text-decoration: none;
+            }
+        } 
+        &>li.active > a{
+            color: #fff;
+            border-left-color: #3c8dbc;
+        }
+        &>li.menu-open > ul.treeview-menu{
+            padding: 0 2px;
+            background: #2c3b41;
+        }
+        
+    }
+}

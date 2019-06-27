@@ -28,6 +28,73 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
+a {
+  text-decoration: none;
+  outline: none;
+}
+a:focus,
+a:active,
+a:hover {
+  text-decoration: none;
+  outline: none;
+}
+.custom-h {
+  position: relative;
+  height: 37px;
+  padding: 10px 20px;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  cursor: default;
+  background: #f8f8f8;
+  border-radius: 3px;
+}
+.custom-h::before {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  width: 4px;
+  height: 15px;
+  margin-right: 10px;
+  color: #ffa82a;
+  content: " ";
+  background: #ffa82a;
+}
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.bg-red {
+  background-color: #dd4b39;
+}
+.bg-default {
+  background-color: #d2d6de;
+}
+.bg-green {
+  background-color: #00a65a;
+}
+.bg-blue {
+  background-color: #0073b7;
+}
+.bg-yellow {
+  background-color: #f39c12;
+}
+.bg-aqua {
+  background-color: #00c0ef;
+}
+.glyphicon:hover,
+.glyphicon:focus {
+  color: #7fbb38;
+}
 @media (min-width: 768px) {
   .sidebar-mini.sidebar-collapse .main-header .main-log {
     width: 70px;
@@ -48,7 +115,7 @@ body {
   width: 100%;
   min-height: 40px;
   max-height: 100px;
-  background: #303030;
+  background: #222d32;
 }
 .main-header::after {
   clear: both;
@@ -251,6 +318,9 @@ body {
   color: #ccc;
   content: "\f068";
 }
+.content-wrapper .content-router li.router-item:hover {
+  cursor: pointer;
+}
 .content-wrapper .content-router li.router-item.active {
   color: #7fbb38;
 }
@@ -280,6 +350,19 @@ body {
          -o-transform: translate(0, 0);
             transform: translate(0, 0);
   }
+  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu > li.header,
+  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu > li > .treeview-menu,
+  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu > li > a > .pull-right-container,
+  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu > li > a > span {
+    display: none !important;
+    -webkit-transform: translateZ(0);
+  }
+  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu > li > a > .fa {
+    -webkit-transform: translateX(7px) scale(1.1);
+        -ms-transform: translateX(7px) scale(1.1);
+         -o-transform: translateX(7px) scale(1.1);
+            transform: translateX(7px) scale(1.1);
+  }
 }
 .main-sidebar {
   position: absolute;
@@ -289,14 +372,87 @@ body {
   width: 170px;
   min-height: 100%;
   padding-top: 50px;
-  background: #303030;
+  background: #222d32;
   -webkit-transition: -webkit-transform .3s ease-in-out, width .3s ease-in-out;
        -o-transition:      -o-transform .3s ease-in-out, width .3s ease-in-out;
           transition:         transform .3s ease-in-out, width .3s ease-in-out;
 }
+.main-sidebar .sidebar-menu .menu-open > a > .pull-right-container > .fa-angle-left {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+       -o-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
 .main-sidebar .sidebar-menu {
   width: 100%;
   height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.main-sidebar .sidebar-menu:hover {
+  overflow: visible;
+}
+.main-sidebar .sidebar-menu > li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.main-sidebar .sidebar-menu > li a {
+  position: relative;
+}
+.main-sidebar .sidebar-menu > li > a {
+  display: block;
+  padding: 12px 5px 12px 15px;
+  border-left: 3px solid transparent;
+}
+.main-sidebar .sidebar-menu > li > a > .fa {
+  width: 20px;
+}
+.main-sidebar .sidebar-menu > li > a > .pull-right-container {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -7px;
+}
+.main-sidebar .sidebar-menu > li > a > .pull-right-container > .fa-angle-left {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin-right: 10px;
+  -webkit-transition: -webkit-transform .5s ease;
+       -o-transition:      -o-transform .5s ease;
+          transition:         transform .5s ease;
+}
+.main-sidebar .sidebar-menu > li .label {
+  margin-right: 5px;
+}
+.main-sidebar .sidebar-menu > li.header {
+  padding: 10px 25px 10px 15px;
+  font-size: 12px;
+}
+.main-sidebar .sidebar-menu ul.treeview-menu {
+  display: none;
+  padding: 0;
+  padding-left: 5px;
+  margin: 0;
+  list-style: none;
+}
+.main-sidebar .sidebar-menu ul.treeview-menu > li a {
+  display: block;
+  padding: 5px 5px 5px 15px;
+  font-size: 14px;
+}
+.main-sidebar .sidebar-menu li.treeview ul.treeview-menu {
+  height: auto;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+}
+.main-sidebar .sidebar-menu li.treeview.menu-open > ul.treeview-menu {
+  display: block;
+  height: auto;
+  overflow: visible;
 }
 @media (min-width: 768px) {
   .sidebar-mini.sidebar-collapse .main-footer {
@@ -314,29 +470,204 @@ body {
 .main-footer .footer-content {
   height: 100%;
   margin-left: 15px;
+  line-height: 40px;
   background: #fff;
 }
-.custom-h {
-  position: relative;
-  height: 40px;
-  padding: 10px 20px;
-  overflow: hidden;
-  font-weight: bold;
-  line-height: 1.5;
-  color: #000;
-  cursor: default;
-  background: #f8f8f8;
-  border-radius: 3px;
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
 }
-.custom-h > span {
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+}
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: #666;
+}
+.nav.collapse.in .active a:hover,
+.nav.collapse.in .active afocus {
+  color: #000;
+  background: #ededed;
+}
+.nav-tabs {
+  border-bottom: 2px solid #f1f1f1;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -2px;
+}
+.nav-tabs > li > a {
+  width: 150px;
+  margin-right: 0;
+  color: #666;
+  text-align: center;
+  border: none;
+  border-bottom: 4px solid transparent;
+  border-radius: 0;
+}
+.nav-tabs > li > a:hover {
+  background-color: #fff;
+  border-color: transparent;
+  border-bottom-color: #ccc;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #666;
+  cursor: default;
+  border: none;
+  border-bottom: 4px solid #7fbb38;
+}
+.tab-content {
+  padding: 14px 0;
+}
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.btn-default:active,
+.btn-primary:active,
+.btn-success:active,
+.btn-info:active,
+.btn-warning:active,
+.btn-danger:active,
+.btn-default.active,
+.btn-primary.active,
+.btn-success.active,
+.btn-info.active,
+.btn-warning.active,
+.btn-danger.active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.btn-default.disabled,
+.btn-primary.disabled,
+.btn-success.disabled,
+.btn-info.disabled,
+.btn-warning.disabled,
+.btn-danger.disabled,
+.btn-default[disabled],
+.btn-primary[disabled],
+.btn-success[disabled],
+.btn-info[disabled],
+.btn-warning[disabled],
+.btn-danger[disabled],
+fieldset[disabled] .btn-default,
+fieldset[disabled] .btn-primary,
+fieldset[disabled] .btn-success,
+fieldset[disabled] .btn-info,
+fieldset[disabled] .btn-warning,
+fieldset[disabled] .btn-danger {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.btn-default .badge,
+.btn-primary .badge,
+.btn-success .badge,
+.btn-info .badge,
+.btn-warning .badge,
+.btn-danger .badge {
+  text-shadow: none;
+}
+.btn {
+  min-width: 110px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+.btn.btn-smin {
+  min-width: 60px;
+  font-size: 14px;
+}
+.btn.btn-default {
+  background: #e6e6e6;
+}
+.btn.btn-primary {
+  background: #7fbb38;
+}
+.btn.btn-primary:active:focus {
+  background: #6ea130;
+}
+.btn:active,
+.btn:focus,
+.btn:hover,
+.btn:active:focus {
+  outline: none;
+  outline-offset: 0;
+}
+.checked-custom {
+  position: relative;
+}
+.checked-custom.disabled {
+  cursor: not-allowed;
+}
+.checked-custom.disabled input[type="radio"][disabled],
+.checked-custom.disabled input[type="checkbox"][disabled],
+.checked-custom.disabled input[type="radio"].disabled,
+.checked-custom.disabled input[type="checkbox"].disabled,
+.checked-custom.disabled fieldset[disabled] input[type="radio"],
+.checked-custom.disabled fieldset[disabled] input[type="checkbox"] {
+  cursor: not-allowed;
+}
+.checked-custom.disabled input[type="radio"][disabled] + span,
+.checked-custom.disabled input[type="checkbox"][disabled] + span {
+  color: #999;
+}
+.checked-custom input[type="radio"],
+.checked-custom input[type="checkbox"] {
+  opacity: 0;
+}
+.checked-custom > span {
+  padding-left: 2px;
+  color: #333;
+}
+.checked-custom input[type="checkbox"] + span::before,
+.checked-custom input[type="radio"] + span::before {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 4px;
-  height: 18px;
-  margin-right: 10px;
-  color: #ffa82a;
-  background: #ffa82a;
+  top: 2px;
+  left: 1px;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  font-size: 16px;
+  color: #7fbb38;
+  vertical-align: middle;
+
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.checked-custom input[type="radio"] + span::before {
+  content: "\f10c";
+}
+.checked-custom input[type="checkbox"] + span::before {
+  top: 3px;
+  content: "\f096";
+}
+.checked-custom input[type="radio"]:checked + span::before {
+  content: "\f192";
+}
+.checked-custom input[type="checkbox"]:checked + span::before {
+  content: "\f046";
+}
+.form-control > option:hover {
+  background: red;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  color: #333;
+  background-color: #999;
+  opacity: .6;
+}
+.form-control:focus {
+  border-color: #7fbb38;
 }
 /* 修改 bootstrap input-groups.less  */
 .input-group-default > .form-control {
@@ -356,9 +687,9 @@ body {
   color: #7fbb38;
   text-align: right;
 }
-.glyphicon:hover,
-.glyphicon:focus {
-  color: #7fbb38;
+.form-search .input-group-btn .btn {
+  background: #fff;
+  border: 1px solid #ccc;
 }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

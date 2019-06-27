@@ -6,6 +6,18 @@
         transform: translate(0, 0);
         width: @main-sideber-width-min !important;
         z-index: 850;
+        .sidebar-menu {
+            &>li.header,
+            &>li>.treeview-menu,
+            &>li>a>.pull-right-container,
+            &>li>a>span{
+                display: none !important;
+                -webkit-transform: translateZ(0);   
+            }
+            &>li>a>.fa{
+                transform: translateX(7px) scale(1.1);
+            }
+        }
     }
 }
 
@@ -22,8 +34,84 @@
     -moz-transition: -moz-transform .3s ease-in-out,width .3s ease-in-out;
     -o-transition: -o-transform .3s ease-in-out,width .3s ease-in-out;
     transition: transform .3s ease-in-out,width .3s ease-in-out;
+    .sidebar-menu .menu-open > a > .pull-right-container > .fa-angle-left {
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
     .sidebar-menu{
         width: 100%;
         height: 100%;
+        padding:0;
+        margin: 0;
+        list-style: none;
+        &:hover{
+            overflow: visible;
+        }
+        &>li{
+            position: relative;
+            margin: 0;
+            padding: 0;
+            a{
+                position: relative;
+            }
+            &>a{
+                padding: 12px 5px 12px 15px;
+                display: block;
+                border-left: 3px solid transparent;
+                &>.fa{
+                    width:20px;
+                }
+                &>.pull-right-container{
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    margin-top: -7px;
+                    &>.fa-angle-left{
+                        width: auto;
+                        height: auto;
+                        padding: 0;
+                        margin-right: 10px;
+                        -webkit-transition: transform 0.5s ease;
+                        -o-transition: transform 0.5s ease;
+                        transition: transform 0.5s ease;
+                    }
+                }
+            }
+            .label{
+                margin-right: 5px;
+            }
+        }
+        &>li.header{
+            padding: 10px 25px 10px 15px;
+            font-size: 12px;
+        }
+        ul.treeview-menu {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            padding-left: 5px;
+            &>li a{
+                padding: 5px 5px 5px 15px;
+                display: block;
+                font-size: 14px;
+            }
+        } 
+        li.treeview{
+            ul.treeview-menu{
+                overflow: hidden;
+                height: auto;
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+            }
+            &.menu-open > ul.treeview-menu {
+                overflow: visible;
+                height: auto;
+                display: block;
+            }
+        }
     }
+       
 }
