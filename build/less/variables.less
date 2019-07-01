@@ -5,8 +5,9 @@
 
 //== Colors
 //
-//## Gray and brand colors for use across Bootstrap.
-@gray-lighter:           #f5f7f8;  //lighten(@gray-base, 93.5%); // #eee
+//## Gray and brand colors for use across Bootstrap.\
+@gray-base:             #333;
+@gray-lighter:          #f5f7f8;  //lighten(@gray-base, 93.5%); // #eee
 
 @brand-primary:         #7FBB38;  //darken(#428bca, 6.5%); // #337ab7
 @brand-success:         #7FBB38;  //#5cb85c;
@@ -80,7 +81,7 @@
 @content-wrapper-module-interval:    @module-interval;
 
 @content-router-height:             30px;
-@content-router-item-color:         #777;
+@content-router-item-color:         #999;
 @content-router-item-active-color:  @brand-primary;
 
 @content-height:                    calc(100% - @content-wrapper-module-interval - @content-router-height - @main-footer-module-interval);
@@ -98,67 +99,58 @@
 @btn-radius:                    4px;
 // btn end
 
+// pagination
+@pagination-disabled-color:            rgba(153,153,153,.6);
+@pagination-color:                     #aaa;
+@pagination-bg:                        #F7F7F7;
+@pagination-active-bg:          @brand-primary;
+@pagination-hover-color:        @brand-primary;
+// pagination end
+
 // from input
 @input-checked-color:           @brand-primary;
+@input-focus-color:             @brand-primary;
 // from input end
 
-// ##
-//  custom default style
+// modails
+@modal-title-padding:           5px;
+@modal-header-border-color:     #ccc;
+// modails end
 
-@grid-gutter-width:             30px;
-@essential-colour:             @brand-primary;
-
-@wrapper-width:                1336px;
-@navmenu-width:                171px;
-@navmenu-height:               100%;
-@navmenu-side-height:          56px;
-
+// nav-tabs
 @nav-tabs-btn-width:           150px;
 
-@input-text-width:             181px;
-@input-text-height:            32px;
-@input-text-padding:           9px 10px;
-@input-text-color:             #333;
-@input-text-font:              12px;
+// nav-tabs end
 
-@input-hover-color:            #333;
-@input-hover-bg:               #fff;
-
-// 这里需要减去nav类下的li样式padding，20px 
-@navmenu-side-line-height:     (@navmenu-side-height - 20);
-
-@wrapper-b-color:              #f1f1f1;
-
-@navmenu-b-color:              #303030;
-@navmenu-b-list-colr:          #f8f8f8;
-@page-wrapper-width:           1145px;
-@page-wrapper-height:          100%;
-
-@container-max-large-desktop:  (1306 + @grid-gutter-width);
-@container-max-lg:             @container-max-large-desktop;
-
-@modal-md:                     425px;  //600px;
-
-@padding-qmyl-large-vertical:    11px;
-@padding-qmyl-large-horizontal:  77px;
-
-@padding-qmyl-small-vertical:    5px;
-@padding-qmyl-small-horizontal:  31px;
-
-@font-size-qmyl-large:         ceil((@font-size-base * 1.14)); // ~16px
-@font-size-qmyl-small:         ceil((@font-size-base * 1)); // ~14px
-
-//** Placeholder text color
-@input-color-placeholder:        #999;
-
-@padding-base-vertical:     5px;
-
-@pagination-disabled-color:            rgba(153,153,153,.6);
-@pagination-disabled-border:           rgba(221,221,221,.6);
-
-@pagination-color:                     #999;
-@pagination-bg:                        #F5F5F5;
-
-@state-danger-text:              #F9001F;
-
+// tables
 @table-border-color:            #E7E7EB;
+@table-th-bg:                   #F4F5F9;
+// tables end
+
+// @input-text-width:             181px;
+// @input-text-height:            32px;
+// @input-text-padding:           9px 10px;
+// @input-text-color:             #333;
+// @input-text-font:              12px;
+
+// @input-hover-color:            #333;
+// @input-hover-bg:               #fff;
+//** Placeholder text color
+// @input-color-placeholder:        #999;
+
+
+// @modal-md:                     425px;  //600px;
+
+// @padding-qmyl-large-vertical:    11px;
+// @padding-qmyl-large-horizontal:  77px;
+
+// @padding-qmyl-small-vertical:    5px;
+// @padding-qmyl-small-horizontal:  31px;
+
+// @font-size-qmyl-large:         ceil((@font-size-base * 1.14)); // ~16px
+// @font-size-qmyl-small:         ceil((@font-size-base * 1)); // ~14px
+
+// @padding-base-vertical:     5px;
+
+// @state-danger-text:              #F9001F;
+

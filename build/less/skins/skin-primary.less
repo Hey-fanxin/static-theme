@@ -1,7 +1,10 @@
+@skin-brand-primary:         #7FBB38;   
+@wrapper-width:                1336px;
+
 .skin-primay{
     .sidebar-menu{
         &>li.header{
-            color: #00a65a;
+            color: @skin-brand-primary;
             background: #1a2226;
         }
         &>li>a{
@@ -31,5 +34,33 @@
             background: #2c3b41;
         }
         
+    }
+    .form-control:focus {
+        border-color: @skin-brand-primary;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(127,187,56, .6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(127,187,56, .6);
+    }
+    .form-search{
+        .input-group-btn .btn{
+            color: @skin-brand-primary;
+            &:focus{
+                border-color: @skin-brand-primary;
+            }
+            &:hover{
+                border-color: @skin-brand-primary;
+            }
+        }
+    }
+    .lime-pagination{
+        li{
+            .link:hover{
+                color: @skin-brand-primary;
+            }
+        }
+        .active{
+            background-color: @skin-brand-primary;
+            border:solid 1px  @skin-brand-primary;
+        }
     }
 }

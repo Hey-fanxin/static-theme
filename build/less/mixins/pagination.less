@@ -1,0 +1,54 @@
+/**
+ * Created by bianjunping on 2018/4/27.
+ * Pagination
+ * -----------------------------------
+*/
+.lime-pagination {
+  display: inline-block;
+  list-style:none;
+  padding-left: 0;
+  margin: 20px 0;
+  li {
+    height:30px;
+    display: inline-block;
+    background-color:@pagination-bg;
+    border:solid 1px darken(@pagination-bg,0.6%);
+    border-radius:4px;
+    margin-left:2px;
+    color:@pagination-color;
+    a,span{
+      height:100%;
+      line-height:30px;
+      display:inline-block;
+      padding:0px 10px;
+    }
+    .link{
+      color:@pagination-color;
+      text-decoration:none;
+    }
+    .link:hover{
+      color:@pagination-hover-color;
+      text-decoration:underline;
+    }
+    i{
+      font-weight: 300;
+      padding:0 3px;
+    }
+  }
+  .disabled{
+    color:@pagination-disabled-color;
+    cursor:default;
+  }
+  .active{
+    background-color:@pagination-active-bg;
+    border:solid 1px @pagination-active-bg;
+    .link{
+      color:#fafafa;
+    }
+  }
+  .pager-dot{
+    border:none;
+    margin:0px;
+    background-color:transparent;
+  }
+}

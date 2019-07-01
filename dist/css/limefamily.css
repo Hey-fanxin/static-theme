@@ -310,10 +310,11 @@ a:hover {
 .content-wrapper .content-router li.router-item {
   display: inline-block;
   font-size: 13px;
-  color: #777;
+  color: #999;
 }
 .content-wrapper .content-router li.router-item + li::before {
   padding: 0 5px;
+  padding-right: 10px;
   font: normal normal normal 12px/1 FontAwesome;
   color: #ccc;
   content: "\f068";
@@ -602,8 +603,31 @@ fieldset[disabled] .btn-danger {
   outline: none;
   outline-offset: 0;
 }
+.dropup .btn-default,
+.dropdown .btn-default {
+  min-width: 180px;
+  min-height: 32px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 9px 10px;
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+}
+.dropup .btn-default .fa,
+.dropdown .btn-default .fa {
+  float: right;
+  margin-top: 3px;
+}
+.dropup .btn-select,
+.dropdown .btn-select {
+  padding: 1px 10px;
+}
 .checked-custom {
   position: relative;
+  display: inline-block;
+  font-weight: 400;
 }
 .checked-custom.disabled {
   cursor: not-allowed;
@@ -656,18 +680,11 @@ fieldset[disabled] .btn-danger {
 .checked-custom input[type="checkbox"]:checked + span::before {
   content: "\f046";
 }
-.form-control > option:hover {
-  background: red;
-}
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
-  color: #333;
-  background-color: #999;
-  opacity: .6;
-}
 .form-control:focus {
   border-color: #7fbb38;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(127, 187, 56, .6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(127, 187, 56, .6);
 }
 /* 修改 bootstrap input-groups.less  */
 .input-group-default > .form-control {
@@ -690,6 +707,133 @@ fieldset[disabled] .form-control {
 .form-search .input-group-btn .btn {
   background: #fff;
   border: 1px solid #ccc;
+}
+.form-search .input-group-btn .btn:hover {
+  border-color: #7fbb38;
+}
+/**
+ * Created by bianjunping on 2018/4/27.
+ * Pagination
+ * -----------------------------------
+*/
+.lime-pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+}
+.lime-pagination li {
+  display: inline-block;
+  height: 30px;
+  margin-left: 2px;
+  color: #aaa;
+  background-color: #f7f7f7;
+  border: solid 1px #f5f5f5;
+  border-radius: 4px;
+}
+.lime-pagination li a,
+.lime-pagination li span {
+  display: inline-block;
+  height: 100%;
+  padding: 0 10px;
+  line-height: 30px;
+}
+.lime-pagination li .link {
+  color: #aaa;
+  text-decoration: none;
+}
+.lime-pagination li .link:hover {
+  color: #7fbb38;
+  text-decoration: underline;
+}
+.lime-pagination li i {
+  padding: 0 3px;
+  font-weight: 300;
+}
+.lime-pagination .disabled {
+  color: rgba(153, 153, 153, .6);
+  cursor: default;
+}
+.lime-pagination .active {
+  background-color: #7fbb38;
+  border: solid 1px #7fbb38;
+}
+.lime-pagination .active .link {
+  color: #fafafa;
+}
+.lime-pagination .pager-dot {
+  margin: 0;
+  background-color: transparent;
+  border: none;
+}
+.table-bordered {
+  border: 1px solid #e7e7eb;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  color: #333;
+  text-align: center;
+  border: 1px solid #e7e7eb;
+}
+.table-bordered > tbody > tr:hover,
+.table-bordered > tbody > tr:focus {
+  background: #f8f8f8;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  font-weight: bold;
+  cursor: default;
+  background: #f4f5f9;
+  border-bottom-width: 1px;
+}
+.table-bordered .dropdown {
+  display: inline-block;
+  min-width: 150px;
+  margin: 0 auto;
+}
+.table-bordered .dropdown .dropdown-toggle {
+  color: #333;
+  text-decoration: none;
+}
+.table-bordered .dropdown .dropdown-toggle:hover {
+  color: #333;
+}
+.table-bordered .dropdown .dropdown-toggle > span {
+  padding: 0 13px;
+}
+.modal-header {
+  width: 90%;
+  padding: 0;
+  padding-bottom: 5px;
+  margin: 5px auto 0;
+  border-bottom: 1px dashed #ccc;
+}
+.modal-footer {
+  text-align: center;
+  border-top: none;
+}
+.panel {
+  padding: 10px 17px;
+  border-radius: 2px;
+}
+.panel-header {
+  padding: 3px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #e6e6e6;
+}
+.panel-body {
+  padding: 0 0 10px 0;
+}
+.panel-body > div {
+  border-right: 1px dashed #e6e6e6;
+}
+.panel-body > div:last-child {
+  border-right: 0;
 }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

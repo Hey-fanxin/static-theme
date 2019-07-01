@@ -25,12 +25,16 @@
     > th,
     > td {
       border-bottom-width: 1px;
-      background: #F4F5F9;
+      background: @table-th-bg;
       font-weight: bold;
       cursor: default;
     }
   }
-  .dropdown-toggle{
+  .dropdown{
+    display: inline-block;
+    min-width: 150px;
+    margin:0 auto;
+    .dropdown-toggle{
       text-decoration: none;
       color: #333;
       &:hover{
@@ -39,6 +43,7 @@
       >span{
         padding:0 13px;
       }
+    }
   }
 }
 
