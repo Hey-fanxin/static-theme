@@ -1,5 +1,5 @@
 /*!
- * LimeFamily v1.0.7 (http://xxxxxxxx.com)
+ * LimeFamily v1.1.0 (http://xxxxxxxx.com)
  * Copyright 2017-2019 limefamily[bjp]
  * Licensed under the MIT license
  */
