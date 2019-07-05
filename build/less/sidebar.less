@@ -93,10 +93,16 @@
             padding: 0;
             margin: 0;
             padding-left: 5px;
-            &>li a{
-                padding: 5px 5px 5px 15px;
-                display: block;
-                font-size: 14px;
+            &>li {
+                padding-left: 6px;
+                a{
+                    padding: 5px 5px 5px 15px;
+                    display: block;
+                    font-size: 14px;
+                    i::before{
+                        padding-right: 3px;
+                    }
+                }
             }
         } 
         li.treeview{
