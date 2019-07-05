@@ -2,6 +2,17 @@
 @wrapper-width:                1336px;
 
 .skin-primay{
+    .content-router li{
+        & + li::before{
+            color: #ccc;
+        }
+        &,a{
+            color: #999;
+        }
+        &.active{
+            color: @skin-brand-primary;
+        }
+    }
     .nav{
         .open > a{
             border-color: #ccc;

@@ -16,27 +16,18 @@
         background: #fff;
         margin-bottom: @content-wrapper-module-interval;
         li{
-            color: @content-router-item-color;
             display: inline-block;
             font-size: 13px;
-            a{
-                color: @content-router-item-color;
-            }
             & + li::before{
                 font: normal normal normal 12px/1 FontAwesome;
                 content: "\f068";
                 padding: 0 5px;
-                color: #ccc;
                 padding-right: 10px;
             }
             &:hover{
                 cursor: pointer;
             }
         }
-        li.active{
-            color: @content-router-item-active-color;
-        }
-        
     }
     .content{
         margin-left:@content-wrapper-module-interval;

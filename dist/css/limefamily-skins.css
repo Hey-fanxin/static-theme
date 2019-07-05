@@ -3,6 +3,16 @@
  * Copyright 2017-2019 limefamily[bjp]
  * Licensed under the MIT license
  */
+.skin-primay .content-router li + li::before {
+  color: #ccc;
+}
+.skin-primay .content-router li,
+.skin-primay .content-router li a {
+  color: #999;
+}
+.skin-primay .content-router li.active {
+  color: #7fbb38;
+}
 .skin-primay .nav .open > a {
   border-color: #ccc;
 }

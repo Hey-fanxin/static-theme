@@ -308,23 +308,15 @@ a:hover {
 .content-wrapper .content-router li {
   display: inline-block;
   font-size: 13px;
-  color: #999;
-}
-.content-wrapper .content-router li a {
-  color: #999;
 }
 .content-wrapper .content-router li + li::before {
   padding: 0 5px;
   padding-right: 10px;
   font: normal normal normal 12px/1 FontAwesome;
-  color: #ccc;
   content: "\f068";
 }
 .content-wrapper .content-router li:hover {
   cursor: pointer;
-}
-.content-wrapper .content-router li.active {
-  color: #7fbb38;
 }
 .content-wrapper .content {
   position: relative;
