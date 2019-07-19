@@ -33,7 +33,7 @@
             background: #1a2226;
         }
         &>li>a{
-            color: #4d97b9;
+            color: #BEBEBE;
             &:hover{
                 text-decoration: none;
                 color: #fff;
@@ -42,21 +42,22 @@
         }
         &>li.treeview>ul.treeview-menu li{
             a{
-                color: #8aa4af;
+                color: #666666;
             }
             &.active > a,
             & > a:hover{
-                color: #fff;
+                color: @skin-brand-primary;
                 text-decoration: none;
+                background: #f1f1f1;
             }
         } 
         &>li.active > a{
-            color: #fff;
-            border-left-color: #3c8dbc;
+            color: @skin-brand-primary;
+            border-left-color: @skin-brand-primary;
         }
         &>li.menu-open > ul.treeview-menu{
             padding: 0 2px;
-            background: #2c3b41;
+            background: #fff;
         }
         
     }
@@ -117,5 +118,15 @@
                 border-color: darken(@skin-brand-primary,15%);
             }
         }
+        &:focus,
+        &:active:focus, 
+        &.active:focus, 
+        &.focus, 
+        &:active.focus, 
+        &.active.focus {
+            outline: none; 
+            outline-offset: -2px;
+        }
     }
+    
 }

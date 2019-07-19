@@ -397,7 +397,8 @@ a:hover {
 }
 .main-sidebar .sidebar-menu > li > a {
   display: block;
-  padding: 12px 5px 12px 15px;
+  padding: 16px 5px 16px 16px;
+  font-size: 14px;
   border-left: 3px solid transparent;
 }
 .main-sidebar .sidebar-menu > li > a > .fa {
@@ -422,7 +423,7 @@ a:hover {
   margin-right: 5px;
 }
 .main-sidebar .sidebar-menu > li.header {
-  padding: 10px 25px 10px 15px;
+  padding: 12px 25px 12px 15px;
   font-size: 12px;
 }
 .main-sidebar .sidebar-menu ul.treeview-menu {
@@ -433,11 +434,12 @@ a:hover {
   list-style: none;
 }
 .main-sidebar .sidebar-menu ul.treeview-menu > li {
-  padding-left: 6px;
+  padding: 3px 6px;
 }
 .main-sidebar .sidebar-menu ul.treeview-menu > li a {
   display: block;
-  padding: 5px 5px 5px 15px;
+  padding: 6px 5px 6px 16px;
+  margin-bottom: 8px;
   font-size: 14px;
 }
 .main-sidebar .sidebar-menu ul.treeview-menu > li a i::before {

@@ -3,6 +3,9 @@
  * Copyright 2017-2019 limefamily[bjp]
  * Licensed under the MIT license
  */
+.skin-primay a {
+  color: #7fbb38;
+}
 .skin-primay .content-router li + li::before {
   color: #ccc;
 }
@@ -27,7 +30,7 @@
   background: #1a2226;
 }
 .skin-primay .sidebar-menu > li > a {
-  color: #4d97b9;
+  color: #bebebe;
 }
 .skin-primay .sidebar-menu > li > a:hover {
   color: #fff;
@@ -35,20 +38,21 @@
   background: #1e282c;
 }
 .skin-primay .sidebar-menu > li.treeview > ul.treeview-menu li a {
-  color: #8aa4af;
+  color: #666;
 }
 .skin-primay .sidebar-menu > li.treeview > ul.treeview-menu li.active > a,
 .skin-primay .sidebar-menu > li.treeview > ul.treeview-menu li > a:hover {
-  color: #fff;
+  color: #7fbb38;
   text-decoration: none;
+  background: #f1f1f1;
 }
 .skin-primay .sidebar-menu > li.active > a {
-  color: #fff;
-  border-left-color: #3c8dbc;
+  color: #7fbb38;
+  border-left-color: #7fbb38;
 }
 .skin-primay .sidebar-menu > li.menu-open > ul.treeview-menu {
   padding: 0 2px;
-  background: #2c3b41;
+  background: #fff;
 }
 .skin-primay .form-control:focus {
   border-color: #7fbb38;
@@ -99,5 +103,14 @@
 .skin-primay .btn.btn-primary:active:focus {
   background: #6ea130;
   border-color: #578026;
+}
+.skin-primay .btn:focus,
+.skin-primay .btn:active:focus,
+.skin-primay .btn.active:focus,
+.skin-primay .btn.focus,
+.skin-primay .btn:active.focus,
+.skin-primay .btn.active.focus {
+  outline: none;
+  outline-offset: -2px;
 }
 /*# sourceMappingURL=limefamily-skins.css.map */
