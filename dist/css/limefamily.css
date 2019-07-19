@@ -580,7 +580,7 @@ fieldset[disabled] .btn-danger {
 .btn {
   min-width: 110px;
   font-size: 16px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
 }
 .btn.btn-smin {
@@ -588,13 +588,7 @@ fieldset[disabled] .btn-danger {
   font-size: 14px;
 }
 .btn.btn-default {
-  background: #e6e6e6;
-}
-.btn.btn-primary {
-  background: #7fbb38;
-}
-.btn.btn-primary:active:focus {
-  background: #6ea130;
+  background: #fff;
 }
 .btn:active,
 .btn:focus,

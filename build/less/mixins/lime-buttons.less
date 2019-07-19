@@ -25,21 +25,16 @@
 .btn {
   min-width: @btn-width;
   font-size: @btn-font-size;
-  border:none;
+  border:1px solid transparent;
   border-radius: @btn-radius;
   &.btn-smin{
     min-width: @btn-sm-width;
     font-size: @btn-sm-font-size;
   }
   &.btn-default{
-    background: @btn-default-bg-color;
+    background: #fff;
   }
-  &.btn-primary{
-    background: @btn-primary-bg-color;
-    &:active:focus{
-      background: darken(@btn-primary-bg-color, 6.5%)
-    }
-  }
+  
   &:active,
   &:focus,
   &:hover,

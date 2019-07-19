@@ -8,10 +8,11 @@
 }
 .skin-primay .content-router li,
 .skin-primay .content-router li a {
-  color: #999;
+  color: #7fbb38;
 }
 .skin-primay .content-router li.active {
-  color: #7fbb38;
+  color: #999;
+  cursor: default;
 }
 .skin-primay .nav .open > a {
   border-color: #ccc;
@@ -79,5 +80,24 @@
 .skin-primay .custom-h::before {
   color: #ffa82a;
   background: #ffa82a;
+}
+.skin-primay .btn {
+  border-color: rgba(0, 0, 0, .1);
+}
+.skin-primay .btn.btn-default {
+  background: #f9f9f9;
+}
+.skin-primay .btn.btn-default.active,
+.skin-primay .btn.btn-default:active:focus {
+  background: #e8e8e8;
+  border-color: rgba(0, 0, 0, .1);
+}
+.skin-primay .btn.btn-primary {
+  background: #7fbb38;
+}
+.skin-primay .btn.btn-primary.active,
+.skin-primay .btn.btn-primary:active:focus {
+  background: #6ea130;
+  border-color: #578026;
 }
 /*# sourceMappingURL=limefamily-skins.css.map */
