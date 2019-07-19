@@ -96,6 +96,9 @@
   background: #e8e8e8;
   border-color: rgba(0, 0, 0, .1);
 }
+.skin-primay .btn.btn-default a {
+  color: #333;
+}
 .skin-primay .btn.btn-primary {
   background: #7fbb38;
 }
