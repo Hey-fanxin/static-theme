@@ -23,23 +23,14 @@
 }
 
 .btn {
-  min-width: @btn-width;
-  font-size: @btn-font-size;
   border:1px solid transparent;
   border-radius: @btn-radius;
-  &.btn-smin{
-    min-width: @btn-sm-width;
-    font-size: @btn-sm-font-size;
-  }
-  &.btn-default{
-    background: #fff;
-  }
-  
   &:active,
   &:focus,
   &:hover,
-  &:active:focus{
-    outline: none;
+  &:active:focus,
+  &.active.focus {
+    outline: none; 
     outline-offset: 0;
   }
 }

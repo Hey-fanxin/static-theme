@@ -26,7 +26,6 @@ body {
 .wrapper {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
 }
 a {
   text-decoration: none;
@@ -580,22 +579,14 @@ fieldset[disabled] .btn-danger {
   text-shadow: none;
 }
 .btn {
-  min-width: 110px;
-  font-size: 16px;
   border: 1px solid transparent;
   border-radius: 4px;
-}
-.btn.btn-smin {
-  min-width: 60px;
-  font-size: 14px;
-}
-.btn.btn-default {
-  background: #fff;
 }
 .btn:active,
 .btn:focus,
 .btn:hover,
-.btn:active:focus {
+.btn:active:focus,
+.btn.active.focus {
   outline: none;
   outline-offset: 0;
 }
