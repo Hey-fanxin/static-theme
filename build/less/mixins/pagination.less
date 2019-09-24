@@ -36,7 +36,10 @@
   }
   .disabled{
     color:@pagination-disabled-color;
-    cursor:default;
+    cursor:not-allowed;
+    &:hover{
+      cursor: not-allowed;
+    }
   }
   .active{
     border:solid 1px transparent;

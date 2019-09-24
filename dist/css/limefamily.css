@@ -729,8 +729,11 @@ fieldset[disabled] .btn-danger {
   font-weight: 300;
 }
 .lime-pagination .disabled {
-  color: rgba(153, 153, 153, .6);
-  cursor: default;
+  color: rgba(153, 153, 153, .4);
+  cursor: not-allowed;
+}
+.lime-pagination .disabled:hover {
+  cursor: not-allowed;
 }
 .lime-pagination .active {
   border: solid 1px transparent;
