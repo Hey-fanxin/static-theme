@@ -785,13 +785,6 @@ fieldset[disabled] .btn-danger {
 .table-bordered .dropdown .dropdown-toggle > span {
   padding: 0 13px;
 }
-.modal-header {
-  width: 90%;
-  padding: 0;
-  padding-bottom: 5px;
-  margin: 5px auto 0;
-  border-bottom: 1px dashed #ccc;
-}
 .modal-footer {
   text-align: center;
   border-top: none;
